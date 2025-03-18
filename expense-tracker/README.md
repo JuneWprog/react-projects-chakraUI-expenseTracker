@@ -1,12 +1,32 @@
-# React + Vite
+# Install 
+https://v2.chakra-ui.com/getting-started/vite-guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React + Vite +tailWind + React Route + redux
+## create react project with Vite
+```
+npm create vite@latest  my-app --template react
+cd my-app
+npm install
+npm i @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+npm install react-apexcharts
+npm run dev
+```
+@chakra-ui/react → The core Chakra UI package
 
-Currently, two official plugins are available:
+@emotion/react & @emotion/styled → Required for styling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+framer-motion → Used for animations
 
-## Expanding the ESLint configuration
+Wrap your app with Chakra’s ChakraProvider (in main.jsx or main.tsx)
+```
+<React.StrictMode>
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+```
+import { Button, Box, Text } from "@chakra-ui/react";
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
