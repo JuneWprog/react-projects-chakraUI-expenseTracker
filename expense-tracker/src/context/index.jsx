@@ -4,12 +4,12 @@ export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
   const [formData, setFormData] = useState({
-    type: "",
+    type: "expense",
     amount: 0,
     description: "",
   });
 
-  const [value, setValue] = useState("expense");
+
   const [totalExpense, setTotalExpense] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
   const [allTransactions, setAllTransactions] = useState([]);
@@ -34,8 +34,6 @@ export default function GlobalState({ children }) {
         setTotalExpense,
         totalIncome,
         setTotalIncome,
-        value,
-        setValue,
         allTransactions,
         setAllTransactions,
         handleFormSubmit,

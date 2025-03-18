@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 export default function ExpenseView({ type, data }) {
+  console.log("data", data);
   return (
     <Box
       flex={1}
@@ -19,7 +20,7 @@ export default function ExpenseView({ type, data }) {
           {type === "income" ? "Income" : "Expense"}
         </Heading>
       </Flex>
-      {data.map((item) => (
+      {data.map(( item) => (
         <>
           <Flex
             bg={type === "expense" ? "red.50" : "blue.50"}
@@ -30,7 +31,7 @@ export default function ExpenseView({ type, data }) {
             borderColor={type === "expense" ? "red.100" : "blue.100"}
             p={"4"}
             borderRadius={"8"}
-            key ={item.id}
+            key = {item.id}
           >
             <Flex alignItems={"center"} justifyContent={"center"}>
               <Text ml="3" fontWeight="bold" color="gray.600">

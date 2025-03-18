@@ -17,19 +17,21 @@ import { useContext } from "react";
 import { GlobalContext } from "../../context";
 
 export default function TransactionForm({ onClose, isOpen }) {
-  const { formData, setFormData, value, setValue, handleFormSubmit } =
-    useContext(GlobalContext);
+  const { formData, setFormData, handleFormSubmit } = useContext(GlobalContext);
 
   function handleFormChange(event) {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [event.target.name]: event.target.value,
-    });
+    }));
+  
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     handleFormSubmit(formData);
+    
   }
 
   return (
@@ -58,13 +60,18 @@ export default function TransactionForm({ onClose, isOpen }) {
                 onChange={handleFormChange}
               />
             </FormControl>
-            <RadioGroup mt="5" value={value} onChange={setValue}>
+            <RadioGroup
+              mt="5"
+              name="type"
+              value={formData.type}
+              onChange={(value) =>
+                setFormData((prev) => ({ ...prev, type: value }))
+              }
+            >
               <Radio
                 checked={formData.type === "income"}
                 value="income"
                 colorScheme="blue"
-                name="type"
-                onChange={handleFormChange}
               >
                 Income
               </Radio>
@@ -72,8 +79,6 @@ export default function TransactionForm({ onClose, isOpen }) {
                 checked={formData.type === "expense"}
                 value="expense"
                 colorScheme="red"
-                name="type"
-                onChange={handleFormChange}
               >
                 Expense
               </Radio>
